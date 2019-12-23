@@ -7,17 +7,24 @@ import styles from './baseLayout.less';
 const TabBarData = [
   {
     id: 'home',
-    name: '首页',
+    name: '书架',
     icon: require('../../assets/recycleH5_07.png'),
     selectedicon: require('../../assets/recycleH5_02.png'),
     url: '/home',
   },
   {
     id: 'class',
-    name: '分类',
+    name: '推荐',
     icon: require('../../assets/recycleH5_03.png'),
     selectedicon: require('../../assets/recycleH5_06.png'),
-    url: '/class',
+    url: '/recommend',
+  },
+  {
+    id: 'class',
+    name: '捐赠',
+    icon: require('../../assets/recycleH5_19.png'),
+    selectedicon: require('../../assets/recycleH5_19.png'),
+    url: '/donate',
   },
   {
     id: 'my',

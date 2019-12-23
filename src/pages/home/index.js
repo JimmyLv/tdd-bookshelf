@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import { Flex, Modal, SearchBar } from 'antd-mobile';
 import { connect } from 'dva';
-import { SearchBar, Modal, Flex } from 'antd-mobile';
-import HomeCarousel from '../../components/home-tabbar/home-tabber-carousel';
-import Link from 'umi/link';
+import React, { Component } from 'react';
 import router from 'umi/router';
-import styles from './index.less';
+import { BookSummary } from '../../components/BookSummary';
+import HomeCarousel from '../../components/home-tabbar/home-tabber-carousel';
+import './index.less';
 
 @connect(({ home }) => ({ home }))
 class Home extends Component {
@@ -87,25 +87,13 @@ class Home extends Component {
           <div className="hotlist">
             {home.list.productList && home.list.productList.length !== 0
               ? home.list.productList.map(val => (
-                  <div
-                    className="itemBlock"
+                  <BookSummary
                     key={val.id}
                     onClick={() => {
                       console.log('去商品');
                     }}
-                  >
-                    <div className="product_img">
-                      <img
-                        className="img"
-                        src={require('../../assets/5a28b40bc60057c40a000005.png')}
-                      />
-                    </div>
-                    <span className="text_ellipsis">{val.productName}</span>
-                    <div className="priceBox">
-                      最高回收价 <span className="price">¥{val.topPrice}</span>
-                    </div>
-                    <div className="btn">立即回收</div>
-                  </div>
+                    val={val}
+                  />
                 ))
               : ''}
           </div>
