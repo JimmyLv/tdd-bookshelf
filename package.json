@@ -4,7 +4,7 @@
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
-    "test": "umi test",
+    "test": "umi test --passWithNoTests",
     "lint": "eslint src"
   },
   "dependencies": {
