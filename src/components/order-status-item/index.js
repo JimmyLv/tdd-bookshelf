@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import styles from './index.less'
+import styles from './index.less';
 
 class OrderStatusItem extends React.Component {
   constructor(props) {

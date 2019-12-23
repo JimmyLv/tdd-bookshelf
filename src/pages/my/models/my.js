@@ -3,17 +3,17 @@ import router from 'umi/router';
 export default {
   namespace: 'my',
   state: {
-    list: ''
+    list: '',
   },
   effects: {
     *reg({ payload, callback }, { call, put }) {
       const response = yield call(reg, payload);
-      if(!response){
+      if (!response) {
         return;
       }
       yield put({
         type: 'setData',
-        payload: response
+        payload: response,
       });
       if (response) {
         callback(response);
@@ -25,7 +25,7 @@ export default {
       return {
         ...state,
         list: payload,
-      }
+      };
     },
-  }
+  },
 };

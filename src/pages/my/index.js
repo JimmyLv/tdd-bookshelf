@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Modal } from 'antd-mobile';
 import NameCard from '../../components/name-card';
@@ -13,19 +13,18 @@ class MyIndex extends Component {
     this.state = {
       nowdata: 0,
       name: '登录/注册',
-      avatar:'',
-      not_login: false
-    }
+      avatar: '',
+      not_login: false,
+    };
   }
   componentDidMount() {
     const { dispatch } = this.props;
-
   }
-  linkurl(v){
+  linkurl(v) {
     if (v === 'address') {
-      console.log('去地址管理咯')
+      console.log('去地址管理咯');
     } else {
-      console.log('去支付账户管理咯')
+      console.log('去支付账户管理咯');
     }
   }
   render() {
@@ -38,8 +37,8 @@ class MyIndex extends Component {
           avatar={this.state.avatar}
           notLogin={not_login ? 1 : 0}
         />
-        { !my.list.data && <OrderStatus countList={0} />}
-        { my.list.data && <OrderStatus countList={my.list.data} />}
+        {!my.list.data && <OrderStatus countList={0} />}
+        {my.list.data && <OrderStatus countList={my.list.data} />}
         <div className={styles.service_info + ' ' + 'box_shadow'}>
           <div className={styles.service_title + ' ' + 'border_bottommin'}>我的服务</div>
           <div className={styles.service_content}>
@@ -59,7 +58,12 @@ class MyIndex extends Component {
               />
               <div className={styles.service_text}>收货地址</div>
             </div>
-            <div className={styles.service_item} onClick={() => {console.log('帮助中心')}}>
+            <div
+              className={styles.service_item}
+              onClick={() => {
+                console.log('帮助中心');
+              }}
+            >
               <img
                 className={styles.service_img}
                 src={require('../../assets/recycleH5_19.png')}
@@ -70,7 +74,7 @@ class MyIndex extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 export default MyIndex;

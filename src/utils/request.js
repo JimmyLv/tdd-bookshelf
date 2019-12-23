@@ -82,15 +82,15 @@ function request(url, options) {
         newOptions.body = setUrlEncoded(newOptions.body);
       }
     }
-    new_url = url
+    new_url = url;
   } else if (newOptions.method === 'GET') {
-    new_url = url + '?' + setUrlEncoded(newOptions.body)
-    delete newOptions.body
+    new_url = url + '?' + setUrlEncoded(newOptions.body);
+    delete newOptions.body;
   }
 
   return fetch(new_url, newOptions)
     .then(checkStatus)
-    .then((response) => {
+    .then(response => {
       return response.json();
     });
 }
@@ -103,26 +103,28 @@ function request(url, options) {
  */
 function proxyRequest(url, options, showError = true) {
   options = options || {};
-  return request(url, options).then((response) => {
-    if (response && response.token) {
+  return request(url, options)
+    .then(response => {
+      if (response && response.token) {
         setToken(response.token);
-    }
-    if (response.err_code === -1 || response.code === 1) {
-      // return response.data || {};
-      return response || {};
-    }
-    if (showError) {
-      if (response.code !== 403){
-        Toast.fail(response.msg, 1)
       }
-    }
+      if (response.err_code === -1 || response.code === 1) {
+        // return response.data || {};
+        return response || {};
+      }
+      if (showError) {
+        if (response.code !== 403) {
+          Toast.fail(response.msg, 1);
+        }
+      }
       const e = new Error();
       e.code = response.code;
       e.message = response.message || `Failed to get data code : ${e.code}`;
       throw e;
-  }).catch((e,url) => {
-    console.log(e,'errrr')
-    const status = e.code;
+    })
+    .catch((e, url) => {
+      console.log(e, 'errrr');
+      const status = e.code;
       if (status === 401) {
         // @HACK
         /* eslint-disable no-underscore-dangle */
@@ -143,7 +145,7 @@ function proxyRequest(url, options, showError = true) {
         // router.push('/404');
         return;
       }
-  });
+    });
 }
 
 proxyRequest.get = (url, data, options, showError) => {
