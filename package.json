@@ -4,7 +4,7 @@
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
-    "test": "umi test --passWithNoTests",
+    "test": "umi test src --passWithNoTests",
     "lint": "eslint src",
     "cy:open": "cypress open",
     "cy:run": "cypress run --spec 'cypress/integration/E2E/**/*'"
