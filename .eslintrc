@@ -1,3 +1,10 @@
 {
-  "extends": "eslint-config-umi"
+  "extends": "eslint-config-umi",
+  "plugins": ["prettier"],
+  "globals": {
+    "cy": true
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  }
 }
