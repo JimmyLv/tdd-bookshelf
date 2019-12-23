@@ -39,7 +39,7 @@
       });
       document.getElementsByTagName("html")[0].style.fontSize = perRemPx + "px";
 
-      if ('addEventListener' in document) {
+      if ('addEventListener' in document && 'FastClick' in document) {
         document.addEventListener('DOMContentLoaded', function() {
           FastClick.attach(document.body);
         }, false);
