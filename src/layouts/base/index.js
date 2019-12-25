@@ -27,25 +27,15 @@ const TabBarData = [
     url: '/donate',
   },
   {
-    id: 'my',
+    id: 'profile',
     name: '我的',
     icon: require('../../assets/recycleH5_04.png'),
     selectedIcon: require('../../assets/recycleH5_05.png'),
-    url: '/my',
+    url: '/profile',
   },
 ];
 
 class BaseLayout extends React.Component {
-  isTabBarSelect = url => {
-    const {
-      location: { pathname },
-    } = this.props;
-    if (pathname === '/' && url === '/home') {
-      return true;
-    } else {
-      return pathname === url;
-    }
-  };
   render() {
     return (
       <div className={styles.base}>
@@ -61,28 +51,10 @@ class BaseLayout extends React.Component {
               <TabBar.Item
                 title={t.name}
                 key={t.id}
-                icon={
-                  <div
-                    style={{
-                      width: '22px',
-                      height: '22px',
-                      background: `url(${t.icon}) center center /  21px 21px no-repeat`,
-                    }}
-                  />
-                }
-                selectedIcon={
-                  <div
-                    style={{
-                      width: '22px',
-                      height: '22px',
-                      background: `url(${t.selectedIcon}) center center /  21px 21px no-repeat`,
-                    }}
-                  />
-                }
+                icon={this.renderIcon(t.icon)}
+                selectedIcon={this.renderIcon(t.selectedIcon)}
                 // badge={1}
-                onPress={() => {
-                  router.push(t.url);
-                }}
+                onPress={() => router.push(t.url)}
                 selected={isSelect}
                 data-seed="logId"
               >
@@ -94,6 +66,26 @@ class BaseLayout extends React.Component {
       </div>
     );
   }
+  isTabBarSelect = url => {
+    const {
+      location: { pathname },
+    } = this.props;
+    if (pathname === '/' && url === '/home') {
+      return true;
+    } else {
+      return pathname === url;
+    }
+  };
+
+  renderIcon = icon => (
+    <div
+      style={{
+        width: '22px',
+        height: '22px',
+        background: `url(${icon}) center center /  21px 21px no-repeat`,
+      }}
+    />
+  );
 }
 
 export default BaseLayout;

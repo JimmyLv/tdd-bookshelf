@@ -1,5 +1,6 @@
-import Home from './home';
+import React from 'react';
+import Redirect from 'umi/redirect';
 
-export default function() {
-  return <Home />;
-}
+export default () => {
+  return <Redirect to="/home" />;
+};
