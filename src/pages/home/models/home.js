@@ -1,5 +1,5 @@
-import { reg } from 'services/home';
-import router from 'umi/router';
+import { reg } from '../../../services/home';
+
 export default {
   namespace: 'home',
   state: {
@@ -28,7 +28,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, search }) => {
-        if (pathname == '/home' || pathname == '/') {
+        if (['/home', '/'].includes(pathname)) {
           dispatch({
             type: 'reg',
           });

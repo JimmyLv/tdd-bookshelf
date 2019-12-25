@@ -2,35 +2,35 @@ import React from 'react';
 import { TabBar } from 'antd-mobile';
 import router from 'umi/router';
 import 'antd-mobile/dist/antd-mobile.css';
-import styles from './baseLayout.less';
+import styles from './index.less';
 
 const TabBarData = [
   {
     id: 'home',
     name: '书架',
     icon: require('../../assets/recycleH5_07.png'),
-    selectedicon: require('../../assets/recycleH5_02.png'),
+    selectedIcon: require('../../assets/recycleH5_02.png'),
     url: '/home',
   },
   {
-    id: 'class',
+    id: 'recommend',
     name: '推荐',
     icon: require('../../assets/recycleH5_03.png'),
-    selectedicon: require('../../assets/recycleH5_06.png'),
+    selectedIcon: require('../../assets/recycleH5_06.png'),
     url: '/recommend',
   },
   {
-    id: 'class',
+    id: 'donate',
     name: '捐赠',
     icon: require('../../assets/recycleH5_19.png'),
-    selectedicon: require('../../assets/recycleH5_19.png'),
+    selectedIcon: require('../../assets/recycleH5_19.png'),
     url: '/donate',
   },
   {
     id: 'my',
     name: '我的',
     icon: require('../../assets/recycleH5_04.png'),
-    selectedicon: require('../../assets/recycleH5_05.png'),
+    selectedIcon: require('../../assets/recycleH5_05.png'),
     url: '/my',
   },
 ];
@@ -40,7 +40,7 @@ class BaseLayout extends React.Component {
     const {
       location: { pathname },
     } = this.props;
-    if (pathname == '/' && url == '/home') {
+    if (pathname === '/' && url === '/home') {
       return true;
     } else {
       return pathname === url;
@@ -48,7 +48,7 @@ class BaseLayout extends React.Component {
   };
   render() {
     return (
-      <div className={styles.baseLayout}>
+      <div className={styles.base}>
         <TabBar
           unselectedTintColor="#333"
           tintColor="#ef5f55"
@@ -75,7 +75,7 @@ class BaseLayout extends React.Component {
                     style={{
                       width: '22px',
                       height: '22px',
-                      background: `url(${t.selectedicon}) center center /  21px 21px no-repeat`,
+                      background: `url(${t.selectedIcon}) center center /  21px 21px no-repeat`,
                     }}
                   />
                 }

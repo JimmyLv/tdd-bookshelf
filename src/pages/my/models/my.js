@@ -1,5 +1,5 @@
-import { reg } from 'services/my';
-import router from 'umi/router';
+import { reg } from '../../../services/my';
+
 export default {
   namespace: 'my',
   state: {
