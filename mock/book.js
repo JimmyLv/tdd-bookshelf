@@ -38,5 +38,14 @@ export default {
       category: '文学',
       tags: ['当代', '社会'],
     },
+    {
+      id: 4,
+      name: '国富论',
+      author: '亚当·斯密',
+      region: '英国',
+      cover: 'https://img3.doubanio.com/view/subject/l/public/s2164670.jpg',
+      category: '经济',
+      tags: ['经济', '社会'],
+    },
   ],
 };
