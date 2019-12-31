@@ -1,33 +1,22 @@
 import { Tabs } from 'antd-mobile';
 import { useDispatch } from 'react-redux';
 
-export function CategoryTabs({ categories = [] }) {
+export function CategoryTabs({ categories = [], children }) {
   const dispatch = useDispatch();
   return (
     <Tabs
-      tabs={categories.map(i => ({ title: i }))}
+      tabs={categories}
+      renderTab={tab => <span>{tab}</span>}
       onTabClick={tab =>
         dispatch({
           type: 'book/fetch',
           payload: {
-            category: tab.title,
+            category: tab,
           },
         })
       }
     >
-      {tab => (
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '80vh',
-            backgroundColor: '#fff',
-          }}
-        >
-          <p>Content of {tab.title}</p>
-        </div>
-      )}
+      {children}
     </Tabs>
   );
 }

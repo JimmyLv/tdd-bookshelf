@@ -32,3 +32,5 @@ export default {
     },
   },
 };
+
+export const getBookList = state => state.book.list;

@@ -19,3 +19,5 @@ test('should show category list and fetch books by category', () => {
     },
   });
 });
+
+test('should show "文学" category book when select "文学" tab', () => {});
