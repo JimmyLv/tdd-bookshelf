@@ -23,7 +23,7 @@ export default {
     },
   },
   effects: {
-    *fetch({ type, payload }, { put, call }) {
+    *fetch({ payload }, { put, call }) {
       const response = yield call(service.query, payload);
       yield put({
         type: 'update',

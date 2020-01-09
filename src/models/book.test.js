@@ -8,10 +8,12 @@ jest.mock('../services/book', () => ({
 }));
 
 test('should fetch book list', async () => {
-  await expectSaga(book.effects.fetch, { type: 'book/fetch' }, effects)
+  const payload = { category: '文学' };
+
+  await expectSaga(book.effects.fetch, { payload }, effects)
     .withReducer(book.reducers.update)
     .hasFinalState({ list: [{ name: '你不知道的JavaScript' }] })
     .run();
 
-  expect(service.query).toBeCalled();
+  expect(service.query).toBeCalledWith(payload);
 });
