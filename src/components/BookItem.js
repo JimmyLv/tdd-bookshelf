@@ -7,7 +7,7 @@ export function BookItem({ book }) {
       <img src={book.cover} alt={book.name} />
       <div>{book.name}</div>
       <div>
-        <span>
+        <span data-testid="book-author">
           [{book.region.split('')[0]}] {book.author}
         </span>
       </div>
