@@ -13,11 +13,11 @@ class Index extends Component {
     if (ULR_NO_LAYOUT.includes(pathname)) {
       return <BaseLayout {...this.props} />;
     }
-    return <React.Fragment>{children}</React.Fragment>;
+    return <>{children}</>;
   };
 
   render() {
-    return <React.Fragment>{this.renderBody()}</React.Fragment>;
+    return <>{this.renderBody()}</>;
   }
 }
 

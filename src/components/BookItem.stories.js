@@ -5,6 +5,10 @@ export default {
   title: 'BookItem',
 };
 
-export function bookItem() {
-  return <BookItem book={fakeBook} />;
+export function simpleBook() {
+  return (
+    <div style={{ maxWidth: 300 }}>
+      <BookItem book={fakeBook} />
+    </div>
+  );
 }

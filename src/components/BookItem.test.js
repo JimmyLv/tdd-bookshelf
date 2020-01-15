@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
-import { bookItem } from './BookItem.stories';
+import { simpleBook } from './BookItem.stories';
 
 test('should show region and author of book', () => {
-  const { queryByTestId } = render(bookItem());
+  const { queryByTestId } = render(simpleBook());
 
   expect(queryByTestId('book-author').textContent).toBe('[美] Kyle');
 });

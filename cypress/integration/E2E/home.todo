@@ -1,11 +1,14 @@
-header 
+header
+    search
 
 category
-
+    display
+    filter
 tags
+    display
+    filter
 
 book summary
-
-cover,
-name,
-author
+    cover,
+    name,
+    author

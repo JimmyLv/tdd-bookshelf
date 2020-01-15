@@ -1,6 +1,6 @@
-import userEvent from '@testing-library/user-event';
-import { CategoryTabs } from './CategoryTabs';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { categoryTabs } from './CategoryTabs.stories';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
@@ -8,7 +8,7 @@ jest.mock('react-redux', () => ({
 }));
 
 test('should show category list and fetch books by category', () => {
-  const { queryByText } = render(<CategoryTabs categories={['编程', '文学', '历史']} />);
+  const { queryByText } = render(categoryTabs());
 
   userEvent.click(queryByText('文学'));
 
