@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { renderWithRouter } from '../utils/testHelpers';
 import { categoryTabs } from './CategoryTabs.stories';
 
 const mockDispatch = jest.fn();
@@ -8,7 +9,7 @@ jest.mock('react-redux', () => ({
 }));
 
 test('should show category list and fetch books by category', () => {
-  const { queryByText } = render(categoryTabs());
+  const { queryByText } = renderWithRouter(categoryTabs());
 
   userEvent.click(queryByText('文学'));
 
