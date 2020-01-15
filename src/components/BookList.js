@@ -1,8 +1,11 @@
 import { Grid } from 'antd-mobile';
+import queryString from 'query-string';
 import { useSelector } from 'react-redux';
-import { BookItem } from './BookItem';
+import { useLocation } from 'react-router';
 import { createSelector } from 'reselect';
+
 import { getBookList } from '../models/book';
+import { BookItem } from './BookItem';
 
 const getBooksByCategory = createSelector(
   getBookList,
@@ -11,7 +14,11 @@ const getBooksByCategory = createSelector(
 );
 
 export function BookList({ category }) {
-  const books = useSelector(state => getBooksByCategory(state, category));
+  const location = useLocation();
+  const { tag } = queryString.parse(location.search);
+
+  const booksByCategory = useSelector(state => getBooksByCategory(state, category));
+  const books = tag ? booksByCategory.filter(book => book.tags.includes(tag)) : booksByCategory;
 
   return (
     <Grid

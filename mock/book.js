@@ -12,10 +12,10 @@ export default {
 
     {
       id: 2,
-      name: '你不知道的Java',
-      author: 'JimmyLv',
-      region: '中国',
-      cover: 'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e',
+      name: 'Java编程思想(第4版)',
+      author: '埃史尔',
+      region: '美国',
+      cover: 'https://www.linuxidc.com/upload/2014_08/140811101915661.jpg',
       category: '编程',
       tags: ['Java', 'Web'],
     },

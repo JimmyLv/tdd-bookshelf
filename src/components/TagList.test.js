@@ -17,5 +17,5 @@ test('should verify the tag link', () => {
 
   userEvent.click(queryByText('JavaScript'));
 
-  expect(history.location.pathname).toBe('/tags/JavaScript');
+  expect(history.location.search).toBe('?tag=JavaScript');
 });

@@ -17,15 +17,21 @@ export function TagList({ category }) {
   const tagsWithCount = countBy(flatten(tags));
 
   return (
-    <div>
+    <ListBox>
       {map(tagsWithCount, (count, tag) => (
         <StyledTag key={tag}>
-          <Link to={`/tags/${tag}`}>{tag}</Link> {count}本
+          <Link to={`/home?tag=${tag}`}>{tag}</Link> {count}本
         </StyledTag>
       ))}
-    </div>
+    </ListBox>
   );
 }
+
+const ListBox = styled.div`
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+`;
 
 const StyledTag = styled.span`
   padding: 10px 4px;
