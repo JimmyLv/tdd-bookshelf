@@ -1,19 +1,11 @@
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
-import { fakeBook } from '../fixtures/book';
-import { renderWithReduxAndRouter } from '../utils/testHelpers';
-import { TagList } from './TagList';
+import { renderWithRouter } from '../utils/testHelpers';
+import { tagList } from './TagList.stories';
 
 test('should verify the tag link', () => {
   const history = createMemoryHistory();
-  const { queryByText } = renderWithReduxAndRouter(<TagList category={'编程'} />, {
-    initialState: {
-      book: {
-        list: [fakeBook],
-      },
-    },
-    history,
-  });
+  const { queryByText } = renderWithRouter(tagList(), { history });
 
   userEvent.click(queryByText('JavaScript'));
 
