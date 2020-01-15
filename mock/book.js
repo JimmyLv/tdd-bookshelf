@@ -43,7 +43,8 @@ export default {
       name: '国富论',
       author: '亚当·斯密',
       region: '英国',
-      cover: 'https://img3.doubanio.com/view/subject/l/public/s2164670.jpg',
+      cover:
+        'https://wiki.mbalib.com/w/images/thumb/3/38/%E5%9B%BD%E5%AF%8C%E8%AE%BA.jpg/190px-%E5%9B%BD%E5%AF%8C%E8%AE%BA.jpg',
       category: '经济',
       tags: ['经济', '社会'],
     },
