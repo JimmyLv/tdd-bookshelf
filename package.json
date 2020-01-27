@@ -2,22 +2,48 @@
   "name": "tdd-bookshelf",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "lint:fix": "eslint src --fix"
+  },
   "dependencies": {
+    "antd-mobile": "^2.3.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "lodash": "^4.17.15"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "babel-plugin-import": "^1.12.2",
+    "customize-cra": "^0.9.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "prettier": "^1.19.1",
+    "react-app-rewired": "^2.1.5"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "post-commit": "git update-index --again",
+      "pre-commit": "lint-staged"
+    }
   },
   "browserslist": {
     "production": [
