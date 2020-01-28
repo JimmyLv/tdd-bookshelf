@@ -2,6 +2,7 @@ import { uniq } from 'lodash'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createSelector } from 'reselect'
+import styled from 'styled-components'
 import { BookList } from '../components/BookList'
 import { CategoryTabs } from '../components/CategoryTabs'
 import { Header } from '../components/Header'
@@ -22,15 +23,21 @@ export default function() {
 
   return (
     <div className={styles.normal}>
-      <Header />
-      <CategoryTabs categories={categories}>
-        {tab => (
-          <div>
-            <TagList category={tab} />
-            <BookList key={tab} category={tab} />
-          </div>
-        )}
-      </CategoryTabs>
+      <Header title="Bookshelf | 书架" />
+      <Content>
+        <CategoryTabs categories={categories}>
+          {tab => (
+            <div>
+              <TagList category={tab} />
+              <BookList key={tab} category={tab} />
+            </div>
+          )}
+        </CategoryTabs>
+      </Content>
     </div>
   )
 }
+
+const Content = styled.div`
+  min-height: calc(100vh - (56px + 50px));
+`
