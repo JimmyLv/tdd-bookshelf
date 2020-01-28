@@ -18,7 +18,7 @@ export default function() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch({ type: types.FETCH })
-  }, [])
+  }, [dispatch])
   const categories = useSelector(selectBookCategories)
 
   return (
