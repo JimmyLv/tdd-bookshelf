@@ -6,7 +6,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "test:ci": "yarn test --coverage",
+    "test:ci": "cross-env CI=true yarn test --coverage",
     "test:story": "jest test /tests --testMatch '**/*.spec.js' --config tests/jest.config.js",
     "test:story:update": "yarn test:story -u",
     "lint:fix": "eslint src --fix",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.12.2",
+    "cross-env": "^7.0.0",
     "customize-cra": "^0.9.1",
     "cypress": "^3.8.2",
     "cypress-image-snapshot": "^3.1.1",
