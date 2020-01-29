@@ -7,6 +7,11 @@
 
 # testing
 /coverage
+/.nyc_output
+/cypress/screenshots
+/cypress/videos
+/cypress/results
+**/__diff_output__
 
 # production
 /build
