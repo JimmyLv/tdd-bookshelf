@@ -1,3 +1,37 @@
+# 练功房脚手架
+
+如果你恰好也用 JavaScript 做练功房的练习，可以从这个脚手架开始入手。
+
+准备步骤：
+
+* `git clone https://github.com/jimmylv/tdd-bookshelf.git`
+* `cd tdd-bookshelf`
+* `yarn install`
+
+用 WebStorm 或者你习惯的任何 IDE（但是我强烈建议不要使用 WebStorm 之外的其他 IDE）导入工程，运行全部测试，你应该看到绿条。
+
+```bash
+$ yarn start #查看题目
+$ yarn test #运行测试
+
+------
+
+ PASS  src/App.test.js
+ PASS  src/dojo/fizzBuzz.test.js
+
+Test Suites: 2 passed, 2 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        2.681s
+Ran all test suites.
+
+Watch Usage: Press w to show more.
+```
+
+从这里开始你的 Dojo 练习。
+
+------
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
