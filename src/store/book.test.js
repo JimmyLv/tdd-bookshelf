@@ -6,14 +6,14 @@ jest.mock('../services/book')
 
 test('should fetch book list', async () => {
   const payload = { category: '文学' }
-  service.query.mockResolvedValue([{ name: '你不知道的JavaScript' }])
+  service.getAllBooks.mockResolvedValue([{ name: '你不知道的JavaScript' }])
 
   const { storeState } = await expectSaga(sagas)
     .withReducer(reducer)
     .dispatch({ type: types.FETCH, payload })
     .run()
 
-  expect(service.query).toBeCalledWith(payload)
+  expect(service.getAllBooks).toBeCalledWith(payload)
   expect(storeState).toEqual({
     list: [{ name: '你不知道的JavaScript' }],
     total: 1,

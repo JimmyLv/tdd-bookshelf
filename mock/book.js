@@ -6,7 +6,7 @@ export default {
       author: 'Kyle',
       region: '美国',
       cover:
-        'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e',
+        'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg',
       category: '编程',
       tags: ['JavaScript', 'Web'],
     },
@@ -27,7 +27,7 @@ export default {
       author: 'JimmyLv',
       region: '中国',
       cover:
-        'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e',
+        'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg',
       category: '前端',
       tags: ['Web', 'React'],
     },
@@ -37,7 +37,7 @@ export default {
       author: '路遥',
       region: '中国',
       cover:
-        'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e',
+        'http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg',
       category: '文学',
       tags: ['当代', '社会'],
     },

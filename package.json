@@ -7,12 +7,15 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "test:ci": "cross-env CI=true yarn test --coverage",
-    "test:story": "jest test /tests --testMatch '**/*.spec.js' --config tests/jest.config.js",
-    "test:story:update": "yarn test:story -u",
+    "story:test": "jest --config tests/snapshots/jest.config.js",
+    "story:update": "yarn test:story -u",
+    "pact:test": "jest --config tests/pacts/jest.config.js --runInBand",
+    "pact:stubs": "node mock/mock.js",
+    "e2e:open": "cypress open",
+    "e2e:run": "cypress run",
+    "e2e:update": "yarn e2e:run --env updateSnapshots=true",
+    "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "cy:open": "cypress open",
-    "cy:e2e": "cypress run",
-    "cy:e2e:update": "yarn cy:e2e --env updateSnapshots=true",
     "mock": "json-server --watch mock/db.json --routes mock/routes.json --port 8080",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -44,6 +47,8 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
+    "@pact-foundation/pact": "^9.9.2",
+    "@pact-foundation/pact-node": "^10.8.0",
     "babel-plugin-import": "^1.12.2",
     "cross-env": "^7.0.0",
     "customize-cra": "^0.9.1",
@@ -65,7 +70,14 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
       "@babel/preset-react"
     ]
   },
@@ -74,13 +86,19 @@
     "plugins": [
       "prettier"
     ],
+    "env": {
+      "node": true,
+      "jest": true,
+      "jasmine": true
+    },
     "rules": {
       "prettier/prettier": "error",
       "jsx-a11y/accessible-emoji": "off"
     },
     "globals": {
       "Cypress": true,
-      "cy": true
+      "cy": true,
+      "provider": true
     }
   },
   "prettier": {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { fakeBook } from '../fixtures/book'
+import { bookContent } from '../fixtures/book'
 import { BookItem } from './BookItem'
 
 export default {
@@ -9,7 +9,7 @@ export default {
 export function simpleBook() {
   return (
     <div style={{ maxWidth: 300 }}>
-      <BookItem book={fakeBook} />
+      <BookItem book={bookContent} />
     </div>
   )
 }

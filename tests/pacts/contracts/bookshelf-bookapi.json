@@ -1,0 +1,113 @@
+{
+  "consumer": {
+    "name": "Bookshelf"
+  },
+  "provider": {
+    "name": "BookAPI"
+  },
+  "interactions": [
+    {
+      "description": "get all books",
+      "providerState": "books exist",
+      "request": {
+        "method": "GET",
+        "path": "/api/books"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "id": 10,
+            "name": "你不知道的JavaScript",
+            "author": "Kyle Simpson",
+            "region": "美国",
+            "cover": "http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e",
+            "category": "编程",
+            "tags": [
+              "JavaScript",
+              "Web"
+            ]
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "get product with ID 10",
+      "providerState": "product with ID 10 exists",
+      "request": {
+        "method": "GET",
+        "path": "/api/books/10"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 10,
+          "name": "你不知道的JavaScript",
+          "author": "Kyle Simpson",
+          "region": "美国",
+          "cover": "http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e",
+          "category": "编程",
+          "tags": [
+            "JavaScript",
+            "Web"
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "get book with ID 10",
+      "providerState": "book with ID 10 exists",
+      "request": {
+        "method": "GET",
+        "path": "/api/books/10"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "id": 10,
+          "name": "你不知道的JavaScript",
+          "author": "Kyle Simpson",
+          "region": "美国",
+          "cover": "http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg!e",
+          "category": "编程",
+          "tags": [
+            "JavaScript",
+            "Web"
+          ]
+        },
+        "matchingRules": {
+          "$.body": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}

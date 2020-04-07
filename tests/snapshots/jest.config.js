@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ['**/?(*.)(test).(j|t)s?(x)'],
+  testMatch: ['**/snapshots/*.spec.js'],
   moduleNameMapper: {
     '\\.(css|scss|less|png|jpg|svg)$': 'identity-obj-proxy',
   },

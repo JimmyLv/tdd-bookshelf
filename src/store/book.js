@@ -12,7 +12,7 @@ export const actions = {}
 export function* sagas() {
   function* fetchBooks({ payload }) {
     try {
-      const books = yield call(service.query, payload)
+      const books = yield call(service.getAllBooks, payload)
       yield put({ type: types.UPDATE, payload: { books } })
     } catch (error) {
       yield put({ type: types.FETCH_ERROR, error })

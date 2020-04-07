@@ -1,4 +1,9 @@
-export async function query() {
-  const response = await fetch(`/api/books`)
-  return await response.json()
+import http from './index'
+
+export async function getBook(id) {
+  return await http.get(`/books/${id}`)
+}
+
+export async function getAllBooks() {
+  return await http.get(`/books`)
 }

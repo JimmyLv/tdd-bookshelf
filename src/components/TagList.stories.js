@@ -1,5 +1,5 @@
 import React from 'react'
-import { fakeBook } from '../fixtures/book'
+import { bookContent } from '../fixtures/book'
 import { ReduxWrapper } from '../utils/testHelpers'
 import { TagList } from './TagList'
 
@@ -8,7 +8,7 @@ export default {
 }
 
 const initialState = {
-  book: { list: [fakeBook, fakeBook] },
+  book: { list: [bookContent, bookContent] },
 }
 
 export function tagList() {
