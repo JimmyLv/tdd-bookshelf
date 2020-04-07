@@ -1,5 +1,5 @@
-import { eachLike, like } from '@pact-foundation/pact/dsl/matchers'
-import { bookContent } from '../../src/fixtures/book'
+import { like, somethingLike } from '@pact-foundation/pact/dsl/matchers'
+import { anotherBookContent, bookContent } from '../../src/fixtures/book'
 import * as API from '../../src/services/book'
 
 describe('getting all books', () => {
@@ -17,7 +17,10 @@ describe('getting all books', () => {
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
         },
-        body: eachLike(bookContent),
+        body: like([
+          somethingLike(bookContent),
+          somethingLike(anotherBookContent),
+        ]),
       },
     })
 
@@ -25,7 +28,7 @@ describe('getting all books', () => {
     const response = await API.getAllBooks()
 
     // Then: verify the response data and status
-    expect(response.data).toStrictEqual([bookContent])
+    expect(response.data).toStrictEqual([bookContent, anotherBookContent])
     expect(response.status).toEqual(200)
   })
 })

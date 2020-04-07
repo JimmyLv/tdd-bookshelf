@@ -9,6 +9,7 @@ const PACT_FILE = path.resolve(
 const server = pact.createStub({
   pactUrls: [PACT_FILE],
   port: 8080,
+  cors: true,
 })
 server.start().then(function() {
   console.info(`Mock server running on http://localhost:${8080}/api`)

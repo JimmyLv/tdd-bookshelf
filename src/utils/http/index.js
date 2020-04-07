@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getBaseApiUrl } from '../../env'
+import { getBaseApiUrl } from './env'
 
 const http = axios.create({
   baseURL: getBaseApiUrl(),

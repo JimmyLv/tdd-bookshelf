@@ -12,8 +12,8 @@ export const actions = {}
 export function* sagas() {
   function* fetchBooks({ payload }) {
     try {
-      const books = yield call(service.getAllBooks, payload)
-      yield put({ type: types.UPDATE, payload: { books } })
+      const response = yield call(service.getAllBooks, payload)
+      yield put({ type: types.UPDATE, payload: { books: response.data } })
     } catch (error) {
       yield put({ type: types.FETCH_ERROR, error })
     }

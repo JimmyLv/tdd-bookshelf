@@ -1,4 +1,4 @@
-import http from './index'
+import http from '../utils/http'
 
 export async function getBook(id) {
   return await http.get(`/books/${id}`)
