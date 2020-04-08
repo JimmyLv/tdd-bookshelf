@@ -1,23 +1,13 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
-import * as service from '../services/book'
+import { takeLatest } from 'redux-saga/effects'
 
 export const NAME = 'book'
 export const types = {
   FETCH: `${NAME}/FETCH_BOOKS`,
-  FETCH_ERROR: `${NAME}/FETCH_BOOKS_ERROR`,
-  UPDATE: `${NAME}/UPDATE_BOOKS`,
 }
 export const actions = {}
 
 export function* sagas() {
-  function* fetchBooks({ payload }) {
-    try {
-      const response = yield call(service.getAllBooks, payload)
-      yield put({ type: types.UPDATE, payload: { books: response.data } })
-    } catch (error) {
-      yield put({ type: types.FETCH_ERROR, error })
-    }
-  }
+  function* fetchBooks({ payload }) {}
   yield takeLatest(types.FETCH, fetchBooks)
 }
 
@@ -27,17 +17,12 @@ const initialState = {
   error: null,
 }
 
+export const getBookList = state => state.book.list
+
 export default function reducer(state = initialState, action) {
-  const { type, payload, error } = action
+  const { type } = action
   switch (type) {
-    case types.FETCH_ERROR:
-      return { ...state, error }
-    case types.UPDATE:
-      return { ...state, list: payload.books, total: payload.books.length }
     default:
       return state
   }
 }
-
-export const getBookList = state => state.book.list
-export const selectors = {}

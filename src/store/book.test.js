@@ -14,11 +14,4 @@ test('should fetch book list', async () => {
     .withReducer(reducer)
     .dispatch({ type: types.FETCH, payload })
     .run()
-
-  expect(service.getAllBooks).toBeCalledWith(payload)
-  expect(storeState).toEqual({
-    list: [{ name: '你不知道的JavaScript' }],
-    total: 1,
-    error: null,
-  })
 })
