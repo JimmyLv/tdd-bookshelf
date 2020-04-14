@@ -44,10 +44,10 @@
 
     {
       "id": 3,
-      "name": "你不知道的React",
-      "author": "JimmyLv",
+      "name": "深入浅出React和Redux",
+      "author": "程墨",
       "region": "中国",
-      "cover": "http://cover.read.duokan.com/mfsv2/download/s010/p01g8NOQ3Elv/azwcob3UZrT7X6.jpg",
+      "cover": "https://img9.doubanio.com/view/subject/l/public/s29456776.jpg",
       "category": "前端",
       "tags": ["Web", "React"]
     },
