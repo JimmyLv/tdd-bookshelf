@@ -1,6 +1,7 @@
 import React from 'react'
 import { TabBar } from 'antd-mobile'
 import { useHistory, useLocation } from 'react-router-dom'
+import styled from 'styled-components'
 import styles from './index.less'
 
 const TabBarData = [
@@ -76,7 +77,7 @@ function BaseLayout({ children }) {
               selected={isSelect}
               data-seed="logId"
             >
-              {isSelect && children}
+              {isSelect && <Content>{children}</Content>}
             </TabBar.Item>
           )
         })}
@@ -84,5 +85,9 @@ function BaseLayout({ children }) {
     </div>
   )
 }
+
+const Content = styled.div`
+  min-height: calc(100vh - 50px);
+`
 
 export default BaseLayout

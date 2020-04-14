@@ -2,7 +2,6 @@ import { uniq } from 'lodash'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createSelector } from 'reselect'
-import styled from 'styled-components'
 import { BookList } from '../components/BookList'
 import { CategoryTabs } from '../components/CategoryTabs'
 import { Header } from '../components/Header'
@@ -14,7 +13,7 @@ const selectBookCategories = createSelector(getBookList, books =>
   uniq(books.map(book => book.category))
 )
 
-export default function() {
+export default function Home() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch({ type: types.FETCH })
@@ -24,20 +23,14 @@ export default function() {
   return (
     <div className={styles.normal}>
       <Header title="Bookshelf | 书架" />
-      <Content>
-        <CategoryTabs categories={categories}>
-          {tab => (
-            <div>
-              <TagList category={tab} />
-              <BookList key={tab} category={tab} />
-            </div>
-          )}
-        </CategoryTabs>
-      </Content>
+      <CategoryTabs categories={categories}>
+        {tab => (
+          <div>
+            <TagList category={tab} />
+            <BookList key={tab} category={tab} />
+          </div>
+        )}
+      </CategoryTabs>
     </div>
   )
 }
-
-const Content = styled.div`
-  min-height: calc(100vh - (56px + 50px));
-`
